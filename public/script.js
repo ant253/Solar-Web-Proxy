@@ -1,31 +1,17 @@
-const connection = new BareMux.BareMuxConnection("/baremux/worker.js");
-const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-const bareUrl = (location.protocol === "https:" ? "https" : "http") + "://" + location.host + "/bare/";
+document.getElementById('search-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const query = document.getElementById('urlInput').value;
+  if (query) {
+    // Ensure the URL starts with http:// or https://
+    let url = query;
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://' + url;
+    }
 
-document.getElementById("urlInput").addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("searchButton").click();
+    // Encode the URL for the proxy
+    const encodedUrl = __uv$config.encodeUrl(url);
+
+    // Redirect to the proxy
+    window.location.href = __uv$config.prefix + encodedUrl;
   }
 });
-
-document.getElementById("searchButton").onclick = async function (event) {
-  event.preventDefault();
-
-  let url = document.getElementById("urlInput").value;
-  let searchUrl = "https://www.google.com/search?q=";
-
-  if (!url.includes(".")) {
-    url = searchUrl + encodeURIComponent(url);
-  } else {
-    if (!url.startsWith("http://") && !url.startsWith("https://")) {
-      url = "https://" + url;
-    }
-  }
-
-  if (!await connection.getTransport()) {
-    await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-  }
-
-  document.getElementById("iframeWindow").src = __uv$config.prefix + __uv$config.encodeUrl(url);
-};
