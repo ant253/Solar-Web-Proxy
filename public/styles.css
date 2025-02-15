@@ -29,31 +29,38 @@ body {
 
 h1 {
   margin-bottom: 30px;
-  font-size: 2.5em;
+  font-size: 3.5em; /* Bigger title */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between search bar and button */
+  width: 100%;
+  max-width: 600px; /* Limit width of search container */
 }
 
 #urlInput {
-  padding: 0.75rem;
+  padding: 1rem; /* Bigger padding */
   border: 1px solid #ccc;
   border-radius: 25px;
   width: 100%; /* Full width of the container */
-  max-width: 500px; /* Limit input width */
-  font-size: 1rem;
+  font-size: 1.2rem; /* Bigger font size */
   outline: none;
   background-color: white; /* White background for the search bar */
   color: #121212; /* Dark text for contrast */
-  margin-bottom: 20px; /* Spacing between input and button */
 }
 
 #searchButton {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem; /* Bigger padding */
   border: none;
   border-radius: 25px;
   background-color: #2563eb; /* Blue button background */
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem; /* Bigger font size */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap; /* Prevent button text from wrapping */
 }
 
 #searchButton:hover {
@@ -87,10 +94,15 @@ h1 {
   }
 
   h1 {
-      font-size: 2em; /* Smaller heading for smaller screens */
+      font-size: 2.5em; /* Smaller heading for smaller screens */
+  }
+
+  .search-container {
+      flex-direction: column; /* Stack search bar and button vertically on small screens */
   }
 
   #urlInput, #searchButton {
+      width: 100%; /* Full width for smaller screens */
       font-size: 1em; /* Smaller font size for smaller screens */
   }
 }
@@ -102,7 +114,7 @@ h1 {
   }
 
   h1 {
-      font-size: 1.5em; /* Even smaller heading for very small screens */
+      font-size: 2em; /* Even smaller heading for very small screens */
   }
 
   #urlInput, #searchButton {
