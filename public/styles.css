@@ -11,15 +11,20 @@ body {
 
 .container {
   background-color: #1e3a8a; /* Blue background */
-  padding: 40px;
+  padding: 50px; /* Increased padding */
   border-radius: 20px;
   text-align: center;
-  width: 90%;
-  max-width: 600px;
+  width: 90%; /* Responsive width */
+  max-width: 800px; /* Increased max-width */
+  min-height: 400px; /* Increased min-height */
   position: relative;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   border: 5px solid transparent;
   animation: rainbow-border 6s ease-in-out infinite; /* Rainbow border animation */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -31,16 +36,17 @@ h1 {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 25px;
-  width: 300px;
+  width: 100%; /* Full width of the container */
+  max-width: 500px; /* Limit input width */
   font-size: 1rem;
   outline: none;
   background-color: white; /* White background for the search bar */
   color: #121212; /* Dark text for contrast */
+  margin-bottom: 20px; /* Spacing between input and button */
 }
 
 #searchButton {
   padding: 0.75rem 1.5rem;
-  margin-left: 1rem;
   border: none;
   border-radius: 25px;
   background-color: #2563eb; /* Blue button background */
@@ -74,17 +80,32 @@ h1 {
 }
 
 /* Responsive adjustments */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .container {
-      padding: 30px;
+      padding: 30px; /* Slightly reduced padding for smaller screens */
+      min-height: 300px; /* Reduced min-height for smaller screens */
   }
 
   h1 {
-      font-size: 2em;
+      font-size: 2em; /* Smaller heading for smaller screens */
   }
 
   #urlInput, #searchButton {
-      font-size: 1.2em;
-      padding: 15px;
+      font-size: 1em; /* Smaller font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+      padding: 20px; /* Further reduced padding for very small screens */
+      min-height: 250px; /* Further reduced min-height for very small screens */
+  }
+
+  h1 {
+      font-size: 1.5em; /* Even smaller heading for very small screens */
+  }
+
+  #urlInput, #searchButton {
+      font-size: 0.9em; /* Even smaller font size for very small screens */
   }
 }
