@@ -1,56 +1,90 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
+  background-color: #121212; /* Dark background */
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #1e3a8a; /* Blue background */
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: 5px solid transparent;
+  animation: rainbow-border 6s ease-in-out infinite; /* Rainbow border animation */
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 2.5em;
+}
+
+#urlInput {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  width: 300px;
+  font-size: 1rem;
+  outline: none;
+  background-color: #2563eb; /* Blue input background */
+  color: white;
+}
+
+#searchButton {
+  padding: 0.75rem 1.5rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #2563eb; /* Blue button background */
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#searchButton:hover {
+  background-color: #1d4ed8; /* Darker blue on hover */
+  transform: scale(1.05);
+}
+
+.iframeWindow {
+  width: 100%;
+  height: 500px;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 15px;
+}
+
+/* Rainbow border animation */
+@keyframes rainbow-border {
+  0% { border-color: red; }
+  20% { border-color: orange; }
+  40% { border-color: yellow; }
+  60% { border-color: lime; }
+  80% { border-color: violet; }
+  100% { border-color: red; } /* Ensures the last color smoothly transitions to the first */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
   .container {
-    text-align: center;
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 30px;
   }
-  
+
   h1 {
-    color: #333;
-    margin-bottom: 1.5rem;
+      font-size: 2em;
   }
-  
-  #urlInput {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    width: 300px;
-    font-size: 1rem;
-    outline: none;
+
+  #urlInput, #searchButton {
+      font-size: 1.2em;
+      padding: 15px;
   }
-  
-  #searchButton {
-    padding: 0.75rem 1.5rem;
-    margin-left: 1rem;
-    border: none;
-    border-radius: 25px;
-    background-color: #007bff;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #searchButton:hover {
-    background-color: #0056b3;
-  }
-  
-  .iframeWindow {
-    width: 100%;
-    height: 500px;
-    border: none;
-    margin-top: 1rem;
-    border-radius: 15px;
-  }
+}
