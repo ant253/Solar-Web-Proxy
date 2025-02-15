@@ -29,6 +29,13 @@ server.on('upgrade', (req, socket, head) => {
   }
 });
 
+// Proxy all requests through Ultraviolet
+app.use('/service/', (req, res) => {
+  const encodedUrl = req.url.slice(1); // Remove the leading slash
+  const decodedUrl = decodeURIComponent(encodedUrl);
+  res.redirect(`/uv/${decodedUrl}`);
+});
+
 // Run on local IP for port forwarding
 const localIP = '0.0.0.0'; // Listen on all interfaces
 server.listen(port, localIP, () => {
