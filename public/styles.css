@@ -34,8 +34,8 @@ h1 {
   width: 300px;
   font-size: 1rem;
   outline: none;
-  background-color: #2563eb; /* Blue input background */
-  color: white;
+  background-color: white; /* White background for the search bar */
+  color: #121212; /* Dark text for contrast */
 }
 
 #searchButton {
