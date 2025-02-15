@@ -1,20 +1,14 @@
 document.getElementById('search-form').addEventListener('submit', function (e) {
-  e.preventDefault(); // Prevent the default form submission behavior
-
-  const query = document.getElementById('urlInput').value;
+  e.preventDefault();
+  const query = document.getElementById('urlInput').value.trim();
   if (query) {
-    // Ensure the URL starts with http:// or https://
     let url = query;
-    if (!url.startsWith('http://') && !url.startsWith('https://')) {
-      url = 'https://' + url;
+    if (!/^https?:\/\//i.test(url)) {
+      url = `https://${url}`;
     }
-
-    // Encode the URL for the proxy
     const encodedUrl = __uv$config.encodeUrl(url);
-
-    // Redirect to the proxy
-    window.location.href = __uv$config.prefix + encodedUrl;
+    window.location.href = `${__uv$config.prefix}${encodedUrl}`;
   } else {
-    alert('Please enter a valid URL.'); // Show an alert if the input is empty
+    alert('Please enter a URL.');
   }
 });

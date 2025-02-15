@@ -1,5 +1,5 @@
 self.__uv$config = {
-  prefix: '/service/', // Proxy prefix
+  prefix: '/service/',
   encodeUrl: (url) => encodeURIComponent(url),
   decodeUrl: (url) => decodeURIComponent(url),
   handler: '/uv/uv.handler.js',

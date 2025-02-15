@@ -33,11 +33,10 @@ server.on('upgrade', (req, socket, head) => {
 app.use('/service/', (req, res) => {
   const encodedUrl = req.url.slice(1); // Remove the leading slash
   const decodedUrl = decodeURIComponent(encodedUrl);
-  res.redirect(`/uv/${decodedUrl}`);
+  res.redirect(`/uv/service/${decodedUrl}`);
 });
 
 // Run on local IP for port forwarding
-const localIP = '0.0.0.0'; // Listen on all interfaces
-server.listen(port, localIP, () => {
-  console.log(`Server running at http://${localIP}:${port}`);
+server.listen(port, '0.0.0.0', () => {
+  console.log(`Server running at http://0.0.0.0:${port}`);
 });
