@@ -1,5 +1,6 @@
 document.getElementById('search-form').addEventListener('submit', function (e) {
-  e.preventDefault();
+  e.preventDefault(); // Prevent the default form submission behavior
+
   const query = document.getElementById('urlInput').value;
   if (query) {
     // Ensure the URL starts with http:// or https://
@@ -13,5 +14,7 @@ document.getElementById('search-form').addEventListener('submit', function (e) {
 
     // Redirect to the proxy
     window.location.href = __uv$config.prefix + encodedUrl;
+  } else {
+    alert('Please enter a valid URL.'); // Show an alert if the input is empty
   }
 });
