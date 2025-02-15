@@ -1,0 +1,29 @@
+{
+    "name": "solar-web-proxy",
+    "version": "1.0.0",
+    "description": "A web proxy with a simple, rounded UI with a Ultraviolet Backend.",
+    "main": "src/server.js",
+    "type": "module",
+    "scripts": {
+      "start": "node src/server.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/ant253/Solar-Web-Proxy.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/ant253/Solar-Web-Proxy/issues"
+    },
+    "homepage": "https://github.com/ant253/Solar-Web-Proxy#readme",
+    "dependencies": {
+      "@mercuryworkshop/bare-mux": "^2.1.7",
+      "@mercuryworkshop/epoxy-transport": "^2.1.27",
+      "@titaniumnetwork-dev/ultraviolet": "^3.2.10",
+      "express": "^4.21.2",
+      "wisp-server-node": "^1.1.7"
+    }
+  }
